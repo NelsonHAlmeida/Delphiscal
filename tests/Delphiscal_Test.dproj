@@ -33,11 +33,6 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
-    <PropertyGroup Condition="('$(Platform)'=='Linux64' and '$(Base)'=='true') or '$(Base_Linux64)'!=''">
-        <Base_Linux64>true</Base_Linux64>
-        <CfgParent>Base</CfgParent>
-        <Base>true</Base>
-    </PropertyGroup>
     <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
         <Base_Win32>true</Base_Win32>
         <CfgParent>Base</CfgParent>
@@ -75,7 +70,6 @@
         <UsingDelphiRTL>true</UsingDelphiRTL>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
-        <DCC_UnitSearchPath>..\src;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <SanitizedProjectName>Delphiscal_Test</SanitizedProjectName>
         <VerInfo_Locale>1046</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
@@ -102,9 +96,6 @@
         <VerInfo_UIDeviceFamily>iPhoneAndiPad</VerInfo_UIDeviceFamily>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Base_Linux64)'!=''">
-        <DCC_UsePackage>DataSnapServer;fmx;emshosting;DbxCommonDriver;bindengine;FireDACCommonODBC;emsclient;FireDACCommonDriver;IndyProtocols;dbxcds;emsedge;inetdb;FireDACSqliteDriver;DbxClientDriver;FireDACASADriver;soapmidas;dbexpress;FireDACInfxDriver;inet;DataSnapCommon;AWSSDK;dbrtl;FireDACOracleDriver;CustomIPTransport;FireDACMSSQLDriver;DataSnapIndy10ServerTransport;DataSnapConnectors;FireDACMongoDBDriver;IndySystem;FireDACTDataDriver;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;IndyCore;RESTBackendComponents;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;dsnapxml;DataSnapClient;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;xmlrtl;dsnap;CloudService;FireDACDb2Driver;DataSnapNativeClient;DatasnapConnectorsFreePascal;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
-    </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>vclwinx;DataSnapServer;fmx;emshosting;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;CodeCoverageExperts;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;emsedge;bindcompfmx;DBXFirebirdDriver;inetdb;FireDACSqliteDriver;DbxClientDriver;FireDACASADriver;soapmidas;vclactnband;fmxFireDAC;dbexpress;FireDACInfxDriver;DBXMySQLDriver;VclSmp;inet;DataSnapCommon;AWSSDK;vcltouch;fmxase;DBXOdbcDriver;dbrtl;horse_wizard;FireDACDBXDriver;FireDACOracleDriver;fmxdae;FireDACMSAccDriver;CustomIPTransport;FireDACMSSQLDriver;DataSnapIndy10ServerTransport;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;FireDACMongoDBDriver;IndySystem;FireDACTDataDriver;OTAHistoryProjectsPkg;vcldb;vclFireDAC;office2K;bindcomp;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;IndyCore;RESTBackendComponents;DOSCommandDR;MigrationExpertsPkg;pkgADRIFoodMarket;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;DataSnapClient;DataSnapProviderClient;adortl;DBXSybaseASEDriver;DBXDb2Driver;vclimg;DataSnapFireDAC;emsclientfiredac;FireDACPgDriver;FireDAC;FireDACDSDriver;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;pkgADRIFood;CloudService;DBXSybaseASADriver;DBXOracleDriver;FireDACDb2Driver;DBXInformixDriver;fmxobj;bindcompvclsmp;DataSnapNativeClient;DatasnapConnectorsFreePascal;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -129,8 +120,6 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <Manifest_File>(None)</Manifest_File>
-        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
@@ -151,6 +140,47 @@
         <DCCReference Include="src\Delphiscal.Icms201.Test.pas"/>
         <DCCReference Include="src\Delphiscal.Icms202_203.Test.pas"/>
         <DCCReference Include="src\Delphiscal.Pis01_02.Test.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Attributes.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Attributes.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Cofins.Base.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Cofins01_02.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Cofins01_02.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Cofins03.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Cofins03.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms.BaseProprio.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms.BaseST.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms.Valor.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms.Valor.ST.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms00.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms00.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms10.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms10.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms20.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms20.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms30.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms30.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms51.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms51.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms70.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms70.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms101.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms101.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms201.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms201.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms202_203.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Icms202_203.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Ipi.Base.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Ipi50AdValorem.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Ipi50AdValorem.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Ipi50Especifico.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Ipi50Especifico.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Pis.Base.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Pis.Base.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Pis01_02.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Pis01_02.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Pis03.Intf.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Pis03.pas"/>
+        <DCCReference Include="..\src\Delphiscal.Utils.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -172,7 +202,9 @@
                     <Source Name="MainSource">Delphiscal_Test.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k270.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp270.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\FastReports\LibD27\dclfrxtee27.bpl">FastReport 6.0 Tee Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
@@ -906,7 +938,6 @@
                 <Platform value="Android64">False</Platform>
                 <Platform value="iOSDevice64">False</Platform>
                 <Platform value="iOSSimulator">False</Platform>
-                <Platform value="Linux64">False</Platform>
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">False</Platform>
             </Platforms>

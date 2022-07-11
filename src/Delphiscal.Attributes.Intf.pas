@@ -19,8 +19,10 @@ type
     function ValorDespesas: Double; overload;
     function ValorDesconto(const AValorDesconto : Double)  : IAttributes<T>; overload;
     function ValorDesconto : Double; overload;
-    function AliquotaPis(const AAliquotaPis : Double)  : IAttributes<T>; overload;
-    function AliquotaPis : Double; overload;
+    function ValorIpi(const AValorIpi : Double)  : IAttributes<T>; overload;
+    function ValorIpi : Double; overload;
+    function Aliquota(const AAliquota : Double)  : IAttributes<T>; overload;
+    function Aliquota : Double; overload;
     function &End : T;
   end;
 

@@ -85,7 +85,7 @@ end;
 function TPis01_02.ValorPis: Double;
 begin
   if Assigned(FAttributes) then
-    Result := RoundABNT(BasePis * (FAttributes.AliquotaPis / 100), 2)
+    Result := RoundABNT(BasePis * (FAttributes.Aliquota / 100), 2)
   else
     Result := RoundABNT(BasePis * (FAliquotaPis / 100), 2);
 end;
