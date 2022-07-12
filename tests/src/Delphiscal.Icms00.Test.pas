@@ -37,12 +37,12 @@ implementation
 
 procedure TDelphiscalIcms00Test.Icms00;
 begin
-  FValorProduto := 135;
-  FValorFrete := 7.5;
-  FValorSeguro := 3;
-  FDespesasAcessorias := 1.5;
-  FValorDesconto := 13.5;
-  FValorIpi := 15;
+  FValorProduto := 232.44;
+//  FValorFrete := 7.5;
+//  FValorSeguro := 3;
+//  FDespesasAcessorias := 1.5;
+//  FValorDesconto := 13.5;
+  FValorIpi := 0;
   FAliquota := 18;
 
   FIcms00 := TIcms00.New(FValorProduto, FValorFrete, FValorSeguro, FDespesasAcessorias,
@@ -51,8 +51,8 @@ begin
   FValorBC := FIcms00.BaseIcmsProprio;
   FValorIcms := FIcms00.ValorIcmsProprio;
 
-  Assert.AreEqual<Double>(148.5, FValorBC);
-  Assert.AreEqual<Double>(26.73, FValorIcms);
+  Assert.AreEqual<Double>(232.44, FValorBC);
+  Assert.AreEqual<Double>(41.84, FValorIcms);
 end;
 
 procedure TDelphiscalIcms00Test.Setup;

@@ -43,16 +43,16 @@ implementation
 
 procedure TDelphiscalIcms10Test.Icms10;
 begin
-  FValorProduto := 135;
-  FValorFrete := 7.5;
-  FValorSeguro := 3;
-  FDespesasAcessorias := 1.5;
-  FValorDesconto := 13.5;
-  FValorIpi := 15;
-  FAliquotaIcmsProprio := 12;
+  FValorProduto := 341.9;
+//  FValorFrete := 7.5;
+//  FValorSeguro := 3;
+//  FDespesasAcessorias := 1.5;
+//  FValorDesconto := 13.5;
+  FValorIpi := 22.22;
+  FAliquotaIcmsProprio := 18;
   FAliquotaIcmsST := 18;
-  FMVA := 40.65;
-  FPercentualReducaoST := 10;
+  FMVA := 72.14;
+//  FPercentualReducaoST := 10;
 
   FIcms10 := TIcms10.New(FValorProduto, FValorFrete, FValorSeguro, FDespesasAcessorias,
                          FValorDesconto, FAliquotaIcmsProprio, FAliquotaIcmsST,
@@ -64,11 +64,11 @@ begin
   FValorIcmsST := FIcms10.ValorIcmsST;
   FValorIcmsSTDeson := FIcms10.ValorIcmsSTDesonerado;
 
-  Assert.AreEqual<Double>(133.5, FValorBC);
-  Assert.AreEqual<Double>(16.02, FValorIcms);
-  Assert.AreEqual<Double>(183.99, FValorBCST);
-  Assert.AreEqual<Double>(17.1, FValorIcmsST);
-  Assert.AreEqual<Double>(4.48, FValorIcmsSTDeson);
+  Assert.AreEqual<Double>(341.9, FValorBC);
+  Assert.AreEqual<Double>(61.54, FValorIcms);
+  Assert.AreEqual<Double>(626.8, FValorBCST);
+  Assert.AreEqual<Double>(51.28, FValorIcmsST);
+  Assert.AreEqual<Double>(0, FValorIcmsSTDeson);
 end;
 
 procedure TDelphiscalIcms10Test.Setup;
