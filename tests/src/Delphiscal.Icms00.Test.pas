@@ -29,6 +29,9 @@ type
 
     [Test]
     procedure Icms00;
+
+    [Test]
+    procedure Icms00_Attributes;
   end;
 
 implementation
@@ -53,6 +56,34 @@ begin
 
   Assert.AreEqual<Double>(232.44, FValorBC);
   Assert.AreEqual<Double>(41.84, FValorIcms);
+end;
+
+procedure TDelphiscalIcms00Test.Icms00_Attributes;
+begin
+  FValorProduto := 135;
+  FValorFrete := 7.5;
+  FValorSeguro := 3;
+  FDespesasAcessorias := 1.5;
+  FValorDesconto := 13.5;
+  FValorIpi := 15;
+  FAliquota := 18;
+
+  FIcms00 := TIcms00.New
+                 .Attributes
+                   .ValorProduto(FValorProduto)
+                   .ValorFrete(FValorFrete)
+                   .ValorSeguro(FValorSeguro)
+                   .ValorDespesas(FDespesasAcessorias)
+                   .ValorDesconto(FValorDesconto)
+                   .Aliquota(FAliquota)
+                   .ValorIpi(FValorIpi)
+                 .&End;
+
+  FValorBC := FIcms00.BaseIcmsProprio;
+  FValorIcms := FIcms00.ValorIcmsProprio;
+
+  Assert.AreEqual<Double>(148.5, FValorBC);
+  Assert.AreEqual<Double>(26.73, FValorIcms);
 end;
 
 procedure TDelphiscalIcms00Test.Setup;

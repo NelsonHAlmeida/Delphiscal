@@ -15,7 +15,8 @@ type
     FValorSeguro: Double;
     FValorDespesas: Double;
     FValorDesconto: Double;
-    FAliquotaPis : Double;
+    FValorIpi : Double;
+    FAliquota : Double;
   public
     constructor Create(AParent : T);
     destructor Destroy; override;
@@ -30,8 +31,10 @@ type
     function ValorDespesas : Double; overload;
     function ValorDesconto(const AValorDesconto : Double)  : IAttributes<T>; overload;
     function ValorDesconto : Double; overload;
-    function AliquotaPis(const AAliquotaPis : Double)  : IAttributes<T>; overload;
-    function AliquotaPis : Double; overload;
+    function ValorIpi(const AValorIpi : Double)  : IAttributes<T>; overload;
+    function ValorIpi : Double; overload;
+    function Aliquota(const AAliquota : Double)  : IAttributes<T>; overload;
+    function Aliquota : Double; overload;
     function &End : T;
   end;
 
@@ -44,15 +47,15 @@ begin
   Result := FParent;
 end;
 
-function TAttributes<T>.AliquotaPis: Double;
+function TAttributes<T>.Aliquota: Double;
 begin
-  Result := FAliquotaPis;
+  Result := FAliquota;
 end;
 
-function TAttributes<T>.AliquotaPis(const AAliquotaPis: Double): IAttributes<T>;
+function TAttributes<T>.Aliquota(const AAliquota: Double): IAttributes<T>;
 begin
   Result := Self;
-  FAliquotaPis := AAliquotaPis;
+  FAliquota := AAliquota;
 end;
 
 constructor TAttributes<T>.Create(AParent : T);
@@ -104,6 +107,17 @@ end;
 function TAttributes<T>.ValorFrete: Double;
 begin
   Result := FValorfrete;
+end;
+
+function TAttributes<T>.ValorIpi: Double;
+begin
+  Result := FValorIpi;
+end;
+
+function TAttributes<T>.ValorIpi(const AValorIpi: Double): IAttributes<T>;
+begin
+  Result := Self;
+  FValorIpi := AValorIpi;
 end;
 
 function TAttributes<T>.ValorProduto(

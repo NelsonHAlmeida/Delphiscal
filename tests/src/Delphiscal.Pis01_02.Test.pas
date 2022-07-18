@@ -76,7 +76,7 @@ begin
                      .ValorSeguro(FValorSeguro)
                      .ValorDespesas(FDespesasAcessorias)
                      .ValorDesconto(FValorDesconto)
-                     .AliquotaPis(FAliquota)
+                     .Aliquota(FAliquota)
                    .&End;
 
   FBasePis := FPis01_02.BasePis;
